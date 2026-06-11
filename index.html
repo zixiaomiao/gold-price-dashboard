@@ -1175,19 +1175,24 @@ const ctx3 = document.getElementById('predChart').getContext('2d');
 
 // CNY equivalents of original prediction
 const predCNY = [927,916,912,923,929,925,914,905,898,894,890,883,890,898,907,912,916,
-  923,916,929,938,945,953,942,938,949,960,968,955,979,989,991,995,1003,1008,1014,1014];
+  923,916,929,938,945,953,942,938,949,960,968,955,979,989,991,995,1003,1008,1014];
 
-// Actual check points (CNY)
-const actualCNY = [942, 947, 914];
+// Actual check points (Au99.99收盘价)
+const actualCNY = [942, 947, 919];
 while (actualCNY.length < predCNY.length) actualCNY.push(null);
 
-// Revised prediction (CNY)
-const revisedCNY = [null, 947, 914,
-  937, 935, 930, 919, 909, 900, 894, 890, 883,
-  890, 898, 907, 912, 916, 923, 916, 929, 938,
-  945, 953, 942, 938, 949, 960, 968, 955, 979,
-  989, 991, 995, 1003, 1008, 1014, 1014
+// Revised prediction starting from 6/10 Au99.99 ¥919
+const revisedCNY = [null, 947, 919,
+  923, 925, 920, 918, 915, 913, 918, 922, 925,
+  928, 932, 935, 938, 940,
+  942, 940, 945, 950, 955, 958,
+  955, 952, 958, 962,
+  965, 960, 968, 972, 975, 978,
+  980, 985, 988, 992
 ];
+
+// 周大福足金 = revisedCNY + 319溢价
+const ctfGold = revisedCNY.map(v => v === null ? null : v + 319);
 
 // Color by month
 const predColors = predLabels.map((l,i) => {
@@ -1201,7 +1206,7 @@ const predChartInstance = new Chart(ctx3, {
   data: {
     labels: predLabels,
     datasets: [{
-      label: '🔮 原预测',
+      label: '原预测',
       data: predCNY,
       borderColor: '#D4A843',
       borderDash: [5,3],
@@ -1212,7 +1217,7 @@ const predChartInstance = new Chart(ctx3, {
       pointHoverRadius: 5,
       borderWidth: 1.5,
     }, {
-      label: '✅ 实际',
+      label: '实际 (Au99.99)',
       data: actualCNY,
       borderColor: '#2ED573',
       fill: false,
@@ -1224,7 +1229,7 @@ const predChartInstance = new Chart(ctx3, {
       borderWidth: 0,
       showLine: false,
     }, {
-      label: '🔄 修正预测',
+      label: '修正预测',
       data: revisedCNY,
       borderColor: '#8B5CF6',
       fill: false,
@@ -1234,6 +1239,18 @@ const predChartInstance = new Chart(ctx3, {
       pointHoverRadius: 6,
       borderWidth: 2,
       borderDash: [],
+    }, {
+      label: '周大福足金',
+      data: ctfGold,
+      borderColor: '#D4A843',
+      borderDash: [8,4],
+      fill: false,
+      tension: 0.3,
+      pointBackgroundColor: '#D4A843',
+      pointRadius: 2,
+      pointHoverRadius: 5,
+      borderWidth: 1.5,
+      borderDash: [6,3],
     }]
   },
   options: {
@@ -1251,7 +1268,7 @@ const predChartInstance = new Chart(ctx3, {
             type: 'label',
             xValue: 3,
             yValue: 870,
-            content: '📉 6月回调筑底',
+            content: '6月回调筑底',
             color: '#FF6B81',
             font: { size: 11, weight: 'bold' }
           },
@@ -1259,7 +1276,7 @@ const predChartInstance = new Chart(ctx3, {
             type: 'label',
             xValue: 20,
             yValue: 870,
-            content: '📈 7月触底反弹',
+            content: '7月触底反弹',
             color: '#5BC0EB',
             font: { size: 11, weight: 'bold' }
           },
@@ -1267,7 +1284,7 @@ const predChartInstance = new Chart(ctx3, {
             type: 'label',
             xValue: 32,
             yValue: 870,
-            content: '📊 8-9月走强',
+            content: '8-9月走强',
             color: '#2ED573',
             font: { size: 11, weight: 'bold' }
           },
@@ -1280,7 +1297,7 @@ const predChartInstance = new Chart(ctx3, {
             borderDash: [3,3],
             label: {
               display: true,
-              content: '支撑位 ¥939',
+              content: '前支撑位 ¥939',
               position: 'start',
               backgroundColor: 'rgba(212,168,67,0.1)',
               color: '#D4A843',
@@ -1299,7 +1316,7 @@ const predChartInstance = new Chart(ctx3, {
         ticks: { color: '#8888AA', callback: v => '¥' + v },
         grid: { color: 'rgba(42,42,74,0.3)' },
         min: 860,
-        max: 1040
+        max: 1350
       }
     }
   }
