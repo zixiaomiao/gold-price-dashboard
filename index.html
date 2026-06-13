@@ -714,14 +714,6 @@
     .section-title { flex-direction: column; align-items: start; }
   }
 </style>
-<style>
-.pred-card { max-height: 400px !important; overflow-y: auto !important; margin-bottom: 18px; }
-.pred-card table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
-.pred-card::-webkit-scrollbar { width: 4px; }
-.pred-card::-webkit-scrollbar-track { background: rgba(255,255,255,0.05); border-radius: 2px; }
-.pred-card::-webkit-scrollbar-thumb { background: rgba(212,168,67,0.3); border-radius: 2px; }
-#ctfChart { max-height: 320px; }
-</style>
 </head>
 <body>
 <div class="container">
@@ -1419,6 +1411,11 @@ new Chart(ctx4, {
 });
 
 window.dashboardCharts = [priceChartInstance, cnyChartInstance, predChartInstance];
+
+// 预测表滚动
+const s = document.createElement('style');
+s.textContent = '.pred-card { max-height:400px !important; overflow-y:auto !important; } .pred-card::-webkit-scrollbar { width:4px; } .pred-card::-webkit-scrollbar-track { background:rgba(255,255,255,0.05); border-radius:2px; } .pred-card::-webkit-scrollbar-thumb { background:rgba(212,168,67,0.3); border-radius:2px; }';
+document.head.appendChild(s);
 
 const tabButtons = Array.from(document.querySelectorAll('.tab-button'));
 const tabPanels = Array.from(document.querySelectorAll('.tab-panel'));
