@@ -960,6 +960,11 @@
           </table>
         </div>
       </div>
+      <div class="chart-container" style="margin-top:24px;">
+        <h3>周大福足金价格趋势</h3>
+        <div class="desc">修正预测 + ¥357 品牌溢价 · 单位：人民币/克</div>
+        <canvas id="ctfChart" height="280"></canvas>
+      </div>
     </section>
 
     <section class="tab-panel" id="jewelry" data-panel="jewelry">
@@ -1336,6 +1341,70 @@ const predChartInstance = new Chart(ctx3, {
         grid: { color: 'rgba(42,42,74,0.3)' },
         min: 860,
         max: 1350
+      }
+    }
+  }
+});
+
+// ====== CHART 4: 周大福足金价格走势 ======
+const ctx4 = document.getElementById('ctfChart').getContext('2d');
+new Chart(ctx4, {
+  type: 'line',
+  data: {
+    labels: predLabels,
+    datasets: [{
+      label: '周大福足金（预测）',
+      data: ctfGold,
+      borderColor: '#D4A843',
+      fill: false,
+      tension: 0.3,
+      pointBackgroundColor: '#D4A843',
+      pointRadius: 2,
+      pointHoverRadius: 6,
+      borderWidth: 2,
+    }, {
+      label: '周大福足金（实际）',
+      data: [null,null,null,1222,1269,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],
+      borderColor: '#FF6B81',
+      fill: false,
+      tension: 0,
+      pointBackgroundColor: ['rgba(0,0,0,0)','rgba(0,0,0,0)','rgba(0,0,0,0)','#FF6B81','#FF6B81'],
+      pointRadius: [0,0,0,7,7],
+      pointHoverRadius: [0,0,0,10,10],
+      pointStyle: 'rectRot',
+      borderWidth: 0,
+      showLine: false,
+    }, {
+      label: 'Au99.99 基准价（修正）',
+      data: revisedCNY,
+      borderColor: '#8888AA',
+      borderDash: [4,3],
+      fill: false,
+      tension: 0.3,
+      pointRadius: 0,
+      borderWidth: 1,
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    interaction: { mode: 'index', intersect: false },
+    plugins: {
+      legend: {
+        labels: { color: '#8888AA', usePointStyle: true, padding: 14 },
+        position: 'top',
+      }
+    },
+    scales: {
+      x: {
+        ticks: { color: '#8888AA', maxTicksLimit: 12 },
+        grid: { color: 'rgba(42,42,74,0.3)' }
+      },
+      y: {
+        ticks: { color: '#8888AA', callback: v => '¥' + v },
+        grid: { color: 'rgba(42,42,74,0.3)' },
+        min: 850,
+        max: 1400
       }
     }
   }
