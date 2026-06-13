@@ -839,6 +839,13 @@
           <canvas id="predChart"></canvas>
         </div>
       </div>
+      <div class="chart-container">
+        <h3>周大福足金价格趋势</h3>
+        <div class="desc">修正预测 + ¥357 品牌溢价 · 单位：人民币/克</div>
+        <div class="chart-wrap" style="height:180px;">
+          <canvas id="ctfChart"></canvas>
+        </div>
+      </div>
     </section>
 
     <section class="tab-panel" id="forecast" data-panel="forecast">
@@ -959,11 +966,6 @@
             <tr><td>9/4</td><td class="price-cell"><div class="cny">¥1,012</div></td><td class="price-cell revised-cell"><div class="cny">¥1,000</div></td><td class="price-cell"><div class="cny" style="color:var(--gold-light)">¥1,357</div></td></tr>
           </table>
         </div>
-      </div>
-      <div class="chart-container" style="margin-top:24px;">
-        <h3>周大福足金价格趋势</h3>
-        <div class="desc">修正预测 + ¥357 品牌溢价 · 单位：人民币/克</div>
-        <canvas id="ctfChart" height="280"></canvas>
       </div>
     </section>
 
@@ -1365,10 +1367,10 @@ new Chart(ctx4, {
     }, {
       label: '周大福足金（实际）',
       data: [null,null,null,1222,1269,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],
-      borderColor: '#FF6B81',
+      borderColor: '#2ED573',
       fill: false,
       tension: 0,
-      pointBackgroundColor: ['rgba(0,0,0,0)','rgba(0,0,0,0)','rgba(0,0,0,0)','#FF6B81','#FF6B81'],
+      pointBackgroundColor: ['rgba(0,0,0,0)','rgba(0,0,0,0)','rgba(0,0,0,0)','#2ED573','#2ED573'],
       pointRadius: [0,0,0,7,7],
       pointHoverRadius: [0,0,0,10,10],
       pointStyle: 'rectRot',
