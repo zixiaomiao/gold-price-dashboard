@@ -841,7 +841,7 @@
       </div>
       <div class="chart-container">
         <h3>周大福足金价格趋势</h3>
-        <div class="desc">修正预测 + ¥357 品牌溢价 · 单位：人民币/克</div>
+        <div class="desc">修正预测 + ¥365 品牌溢价 · 单位：人民币/克</div>
         <div class="chart-wrap" style="height:180px;">
           <canvas id="ctfChart"></canvas>
         </div>
@@ -976,7 +976,7 @@
       </div>
 
       <div class="chart-container">
-        <h2>首饰黄金价格一览 · 2026 年 6 月 13 日</h2>
+        <h2>首饰黄金价格一览 · 2026 年 6 月 15 日</h2>
         <div class="desc">以下为各品牌官方足金零售价（饰品、工艺品类）· 不含额外工费 · 来源：品牌官网</div>
         <div class="jewelry-grid">
           <div class="jewelry-item"><div><div class="brand">Au99.99 上海金交所</div><div class="premium">国内基础金价基准</div></div><div style="text-align:right;"><span class="price">¥912</span><span style="color:var(--text-dim);font-size:0.8em">/克（6/12收盘）</span></div></div>
@@ -1218,7 +1218,7 @@ while (actualCNY.length < predCNY.length) actualCNY.push(null);
 
 const revisedCNY = [null,947,919,895,912,908,905,902,900,903,908,912,916,920,924,928,932,935,933,930,935,940,945,948,950,953,955,958,960,958,956,954,952,950,948,952,956,960,964,968,970,974,972,968,964,968,972,976,978,980,983,981,984,990,994,992,994,996,998,996,1002,1000,998,1002,1000];
 
-const ctfGold = revisedCNY.map(v => v === null ? null : v + 357);
+const ctfGold = revisedCNY.map(v => v === null ? null : v + 365);
 
 // Color by month
 const predColors = predLabels.map((l,i) => {
@@ -1366,12 +1366,12 @@ new Chart(ctx4, {
       borderWidth: 2,
     }, {
       label: '周大福足金（实际）',
-      data: [null,null,null,1222,1269,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],
+      data: [null,null,1238,1238,1269,1277,null,1277,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],
       borderColor: '#2ED573',
       fill: false,
       tension: 0,
-      pointBackgroundColor: ['rgba(0,0,0,0)','rgba(0,0,0,0)','rgba(0,0,0,0)','#2ED573','#2ED573'],
-      pointRadius: [0,0,0,7,7],
+      pointBackgroundColor: ['rgba(0,0,0,0)','rgba(0,0,0,0)','#2ED573','#2ED573','#2ED573','#2ED573','rgba(0,0,0,0)','#2ED573'],
+      pointRadius: [0,0,6,6,6,6,0,6],
       pointHoverRadius: [0,0,0,10,10],
       pointStyle: 'rectRot',
       borderWidth: 0,
